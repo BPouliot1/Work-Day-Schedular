@@ -26,6 +26,11 @@ $(function () {
     let eventText = $(this).siblings(".description").val();
     localStorage.setItem(hour, eventText);
   });
+  
+  $(".time-block").each(function() {
+    let hour = $(this).attr("id");
+    $(this).find(".description").val(localStorage.getItem(hour));
+  });
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
