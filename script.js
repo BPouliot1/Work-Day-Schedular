@@ -22,16 +22,15 @@ $(function () {
 
   setInterval(updateColors, 60000);
 
+  let currentDate = dayjs().format("YYYY-MM-DD");
   $(".saveBtn").click(function() {
     let hour = $(this).parent().attr("id");
     let eventText = $(this).siblings(".description").val();
-    let currentDate = dayjs(currentDate + '-' + hour, eventText);
     localStorage.setItem(hour, eventText);
   });
   
   $(".time-block").each(function() {
     let hour = $(this).attr("id");
-    let currentDate = dayjs().format("YYYY-MM-DD");
     $(this).find(".description").val(localStorage.getItem(currentDate + '-' + hour));
   });
   
